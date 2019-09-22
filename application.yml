@@ -1,0 +1,17 @@
+﻿spring:
+  profiles:
+    active: dev
+
+--- #使用---，实现一份配置文件中，定义多个环境的配置文件
+spring:
+  profiles: dev #开发环境
+  application:
+    name: microservercloud-config-dev
+
+---
+spring:
+  profiles: test #测试环境
+  application:
+    name: microservercloud-config-test
+
+# 请保存为UTF-8格式
