@@ -1,0 +1,31 @@
+﻿spring:
+  profiles:
+    active: 
+
+--- #使用---，实现一份配置文件中，定义多个环境的配置文件
+server:
+  port: 8201
+spring:
+  profiles: dev #开发环境
+  application:
+    name: microservercloud-config-client
+eureka:
+  client:
+    register-with-eureka: false #false标识不向注册中心注册自己，当前是服务的消费者
+    service-url: #【注意：千万不能拼错单词，按照提示来写！】
+      defaultZone: http://eureka-dev.com:7001/eureka
+
+---
+server:
+  port: 8202
+spring:
+  profiles: test #开发环境
+  application:
+    name: microservercloud-config-client
+eureka:
+  client:
+    register-with-eureka: false #false标识不向注册中心注册自己，当前是服务的消费者
+    service-url: #【注意：千万不能拼错单词，按照提示来写！】
+      defaultZone: http://eureka-test.com:7001/eureka
+
+# 请保存为UTF-8格式
